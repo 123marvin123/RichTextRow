@@ -3,7 +3,7 @@ var editor = document.getElementById("editor");
 
 richeditor.insertText = function(text) {
     editor.innerHTML = text;
-    window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight);
+    window.webkit.messageHandlers.heightDidChange.postMessage(editor.offsetHeight);
 }
 
 editor.addEventListener("input", function() {
@@ -14,4 +14,4 @@ document.addEventListener("selectionchange", function() {
     window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight);
 }, false);
 
-window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight);
+window.webkit.messageHandlers.heightDidChange.postMessage(editor.offsetHeight);

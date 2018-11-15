@@ -29,9 +29,7 @@ public final class RichTextCell: Cell<String>, CellType, RichTextEditorDelegate 
     public override func setup() {
         textLabel?.text = nil
         detailTextLabel?.text = nil
-        height = {
-            self.editor.height
-        }
+        height = { self.editor.height }
         editor.delegate = self
         editor.placeholder = row.title
         selectionStyle = .none

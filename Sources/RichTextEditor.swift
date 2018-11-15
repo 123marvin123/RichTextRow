@@ -46,7 +46,9 @@ public class RichTextEditor: UIView, WKScriptMessageHandler, WKNavigationDelegat
             if editorView.isLoading {
                 textToLoad = text
             } else {
-                editorView.evaluateJavaScript("richeditor.insertText(\"\(text.htmlEscapeQuotes)\");", completionHandler: nil)
+                editorView.evaluateJavaScript("document.getElementById('editor').innerHTML = \"\(text.htmlEscapeQuotes)\";") { (res, err) in
+                    self.editorView.evaluateJavaScript("window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight)", completionHandler: nil)
+                }
                 placeholderLabel.isHidden = !text.htmlToPlainText.isEmpty
             }
         }
