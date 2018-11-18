@@ -14,4 +14,4 @@ document.addEventListener("selectionchange", function() {
     window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight);
 }, false);
 
-window.webkit.messageHandlers.heightDidChange.postMessage(editor.offsetHeight);
+window.webkit.messageHandlers.heightDidChange.postMessage(editor.scrollHeight);
